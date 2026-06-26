@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Carter | Premium Direct Response Copywriter</title>
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+  <link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <meta name="description" content="High-converting landing pages, sales pages, and email sequences by an expert direct response copywriter.">
   
   <!-- Bootstrap 5 CSS -->
@@ -131,6 +135,14 @@
       color: white;
     }
 
+    .case-study-content h3 {
+      color: white !important;
+    }
+
+    .case-study-content p {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
     .metric-badge {
       background: var(--accent-color);
       color: white;
@@ -186,9 +198,16 @@
     /* Testimonials */
     .testimonial-card {
       background: var(--bg-secondary);
-      padding: 3rem;
+      padding: 2.5rem;
       border-radius: 24px;
       position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-card > p.fst-italic {
+      flex-grow: 1;
     }
 
     .quote-icon {
@@ -230,7 +249,10 @@
   <header class="global-header">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">ALEX<span class="text-gradient">COPY.</span></a>
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <img src="img/logo-icon.png" alt="Brand Logo" height="36" class="brand-logo-icon"> 
+          <span class="brand-text-name fw-bold">ALEX<span class="text-gradient">COPY.</span></span>
+        </a>
         
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -245,9 +267,9 @@
             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           </ul>
           <div class="header-controls">
+            <a href="booking.html" class="btn btn-premium btn-sm">Book a Call</a>
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">☀️</button>
             <button id="rtlToggle" class="rtl-toggle" aria-label="Toggle RTL">⇄</button>
           </div>
