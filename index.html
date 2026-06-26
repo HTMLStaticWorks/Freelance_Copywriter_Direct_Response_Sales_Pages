@@ -1,1 +1,531 @@
-Freelance_Copywriter_Direct_Response_Sales_Pages
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Carter | Premium Direct Response Copywriter</title>
+  <meta name="description" content="High-converting landing pages, sales pages, and email sequences by an expert direct response copywriter.">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <style>
+    /* Home 1 Specific Styles */
+    .hero-1 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-1 .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-1 h1 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .floating-stat {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      z-index: 10;
+    }
+
+    /* Featured Services */
+    .service-card {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      background: var(--bg-primary);
+      border-color: var(--border-color);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 0;
+      transition: transform 0.4s;
+    }
+
+    .service-card-content {
+      padding: 2.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover .service-icon-img {
+      transform: scale(1.05);
+    }
+
+    /* Case Studies */
+    .case-study-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      group: hover;
+    }
+    
+    .case-study-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .case-study-card:hover .case-study-img {
+      transform: scale(1.05);
+    }
+
+    .case-study-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      color: white;
+    }
+
+    .metric-badge {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* Process Timeline */
+    .process-step {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .process-step::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .step-1::before { content: '1'; }
+    .step-2::before { content: '2'; }
+    .step-3::before { content: '3'; }
+
+    .process-step::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 50px;
+      bottom: -30px;
+      width: 2px;
+      background: var(--border-color);
+    }
+    
+    .process-step:last-child::after {
+      display: none;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background: var(--bg-secondary);
+      padding: 3rem;
+      border-radius: 24px;
+      position: relative;
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 4rem;
+      color: var(--border-color);
+      opacity: 0.5;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--bg-primary);
+      border-radius: 40px;
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    
+    .cta-bg-shape {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="global-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">ALEX<span class="text-gradient">COPY.</span></a>
+        
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="header-controls">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">☀️</button>
+            <button id="rtlToggle" class="rtl-toggle" aria-label="Toggle RTL">⇄</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero-1">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0 animate-on-scroll fade-up">
+            <div class="hero-badge">🚀 Elite Conversion Copywriter</div>
+            <h1>Words that <span class="text-gradient">multiply</span> your revenue.</h1>
+            <p class="lead mb-4">I craft high-converting sales pages and email sequences that turn cold traffic into obsessed buyers.</p>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="booking.html" class="btn-premium">Book a Strategy Call</a>
+              <a href="gallery.html" class="btn-outline-premium">View Portfolio</a>
+            </div>
+            <div class="mt-5 d-flex align-items-center gap-4">
+              <div>
+                <h3 class="mb-0 fw-bold"><span class="counter-value" data-target="150">0</span>+</h3>
+                <small class="text-secondary">Projects Delivered</small>
+              </div>
+              <div>
+                <h3 class="mb-0 fw-bold">$<span class="counter-value" data-target="25">0</span>M+</h3>
+                <small class="text-secondary">Client Revenue</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 animate-on-scroll fade-left delay-200">
+            <div class="hero-img-wrapper mask-reveal in-view">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop" alt="Copywriter Workspace" class="img-fluid">
+              <div class="floating-stat floating">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="text-success fs-2">↑</div>
+                  <div>
+                    <h4 class="mb-0 fw-bold">312%</h4>
+                    <span class="text-secondary small">Average ROAS Lift</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Featured Services -->
+    <section class="section-padding bg-secondary">
+      <div class="container">
+        <div class="text-center mb-5 animate-on-scroll fade-up">
+          <span class="text-gradient fw-bold text-uppercase tracking-wider">Expertise</span>
+          <h2 class="display-5 fw-bold mt-2">Specialized in Conversion</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 animate-on-scroll fade-up delay-100">
+            <div class="service-card">
+              <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=800&auto=format&fit=crop" alt="Sales Pages" class="service-icon-img">
+              <div class="service-card-content">
+                <h3 class="h4">Long-Form Sales Pages</h3>
+                <p>Psychologically-driven narratives that dismantle objections and force the prospect to pull out their credit card.</p>
+                <a href="service-details.html" class="fw-bold mt-auto d-inline-block">Learn more →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-200">
+            <div class="service-card">
+              <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=800&auto=format&fit=crop" alt="Email Sequences" class="service-icon-img">
+              <div class="service-card-content">
+                <h3 class="h4">Email Funnel Sequences</h3>
+                <p>Automated launch sequences and soap opera series that build intense desire and daily sales.</p>
+                <a href="service-details.html" class="fw-bold mt-auto d-inline-block">Learn more →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-300">
+            <div class="service-card">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Direct Response Ads" class="service-icon-img">
+              <div class="service-card-content">
+                <h3 class="h4">Direct Response Ads</h3>
+                <p>Scroll-stopping Facebook and Google ad creatives engineered for the lowest possible CPA.</p>
+                <a href="service-details.html" class="fw-bold mt-auto d-inline-block">Learn more →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Case Studies -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5 animate-on-scroll fade-up">
+          <div>
+            <h2 class="display-5 fw-bold">Proof in Numbers</h2>
+            <p class="lead">Recent client victories and revenue milestones.</p>
+          </div>
+          <a href="gallery.html" class="btn-outline-premium d-none d-md-inline-flex">View All Results</a>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6 animate-on-scroll zoom-in">
+            <div class="case-study-card">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1515&auto=format&fit=crop" alt="SaaS Analytics Graph" class="case-study-img">
+              <div class="case-study-content">
+                <span class="metric-badge">+450% Conversion Rate</span>
+                <h3>B2B SaaS Landing Page Overhaul</h3>
+                <p class="mb-0 text-white-50">How we took a generic software page and turned it into a demo-booking machine.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 animate-on-scroll zoom-in delay-200">
+            <div class="case-study-card">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop" alt="E-commerce Dashboard" class="case-study-img">
+              <div class="case-study-content">
+                <span class="metric-badge">$2.1M Launch</span>
+                <h3>E-commerce Black Friday Sequence</h3>
+                <p class="mb-0 text-white-50">A 7-day email strategy that generated record-breaking Q4 revenue.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Writing Process -->
+    <section class="section-padding bg-secondary">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 animate-on-scroll blur-reveal">
+            <h2 class="display-5 fw-bold mb-4">I don't just write. <br>I <span class="text-gradient">architect</span>.</h2>
+            <p class="lead mb-4">Great copy isn't born from sudden inspiration. It's engineered through brutal research, psychological frameworks, and rigorous testing.</p>
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1470&auto=format&fit=crop" alt="Notebook and Pen" class="img-fluid rounded-4 shadow-lg">
+          </div>
+          <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0">
+            <div class="process-step step-1 animate-on-scroll fade-left delay-100">
+              <h4 class="fw-bold">Deep Dive Research</h4>
+              <p>I interview your best customers, scrape Amazon reviews, and read competitor support tickets to find the exact language your market uses.</p>
+            </div>
+            <div class="process-step step-2 animate-on-scroll fade-left delay-200">
+              <h4 class="fw-bold">The Big Idea & Hook</h4>
+              <p>We develop an irresistible angle that makes your offer look completely unique, rendering competitors irrelevant.</p>
+            </div>
+            <div class="process-step step-3 animate-on-scroll fade-left delay-300">
+              <h4 class="fw-bold">Drafting & Optimization</h4>
+              <p>I write, brutally edit, and polish the copy. Then we implement, track the data, and optimize for maximum ROI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Testimonials -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5 animate-on-scroll fade-up">
+          <h2 class="display-5 fw-bold">What Clients Say</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 animate-on-scroll fade-up delay-100">
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="fs-5 fst-italic mb-4">"Alex completely rewrote our VSL. Within 48 hours of going live, our cost per acquisition dropped by 40% and our ROAS doubled. The man is a wizard."</p>
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" alt="CEO Avatar" class="rounded-circle" width="60" height="60">
+                <div>
+                  <h6 class="mb-0 fw-bold">Michael T.</h6>
+                  <small class="text-secondary">Founder, SaaS Growth</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-200">
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="fs-5 fst-italic mb-4">"We hired him for a product launch email sequence. We hit our 30-day revenue goal in the first 6 hours. I will never write my own copy again."</p>
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop" alt="Marketing Director Avatar" class="rounded-circle" width="60" height="60">
+                <div>
+                  <h6 class="mb-0 fw-bold">Sarah Jenkins</h6>
+                  <small class="text-secondary">CMO, Peak Nutrition</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-300">
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="fs-5 fst-italic mb-4">"His copy is so engaging it feels illegal. We've seen a 3x increase in click-through rates on our cold traffic ads since bringing Alex on board."</p>
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop" alt="Founder Avatar" class="rounded-circle" width="60" height="60">
+                <div>
+                  <h6 class="mb-0 fw-bold">David Chen</h6>
+                  <small class="text-secondary">CEO, TechFlow</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA Section -->
+    <section class="section-padding pt-0 container">
+      <div class="cta-section animate-on-scroll zoom-in">
+        <div class="cta-bg-shape"></div>
+        <div class="position-relative z-1">
+          <h2 class="display-4 fw-bold mb-4">Ready to scale your business?</h2>
+          <p class="lead mb-5 max-w-2xl mx-auto text-secondary">Stop losing sales to competitors with better copy. Let's build an automated conversion asset that prints money.</p>
+          <a href="booking.html" class="btn-premium btn-lg">Schedule Your Free Strategy Session</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a href="index.html" class="footer-logo">ALEX<span class="text-gradient">COPY.</span></a>
+          <p class="footer-text mt-3">Elite direct response copywriting for businesses that refuse to settle for average conversion rates.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter" class="social-twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="blog.html">Copywriting Blog</a></li>
+            <li><a href="gallery.html">Portfolio & Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="booking.html">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Join The Newsletter</h5>
+          <p class="text-secondary">Get 1 actionable copywriting tip every Tuesday.</p>
+          <form class="d-flex mt-3 gap-2">
+            <input type="email" class="form-control bg-primary text-primary" placeholder="Enter your email" required style="background: var(--bg-primary) !important; color: var(--text-primary) !important; border-color: var(--border-color);">
+            <button class="btn btn-premium px-4" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0 text-secondary">&copy; 2026 AlexCopy. All rights reserved.</p>
+        <div class="d-flex gap-4">
+          <a href="#" class="text-secondary">Privacy Policy</a>
+          <a href="#" class="text-secondary">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Alex Carter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    .cs-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1472&auto=format&fit=crop') center/cover;
+      position: relative;
+    }
+    .cs-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      z-index: 1;
+    }
+    .cs-content {
+      position: relative;
+      z-index: 2;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+    .countdown-box {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .cd-item {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 2rem;
+      border-radius: 15px;
+      min-width: 120px;
+    }
+    .cd-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .cd-label {
+      color: var(--accent-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+    }
+    .cs-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .cs-footer {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .social-icons a { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; }
+    .social-icons a:hover { background: var(--accent-color); border-color: var(--accent-color); }
+  </style>
+</head>
+<body>
+  
+  <div class="cs-page text-center">
+    <!-- Header Logo -->
+    <div class="position-relative z-2 pt-4">
+      <a href="index.html" class="navbar-brand fs-3 text-white">ALEX<span class="text-gradient">COPY.</span></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="cs-content">
+      <div class="container animate-on-scroll zoom-in">
+        <h1 class="display-3 fw-bold text-white mb-3">Something Big is Dropping.</h1>
+        <p class="lead text-white-50 max-w-2xl mx-auto">I'm currently rebuilding my premium copywriting masterclass. Get on the early bird list to receive a 50% discount when we go live.</p>
+        
+        <!-- Countdown -->
+        <div class="countdown-box" id="countdown">
+          <div class="cd-item">
+            <div class="cd-number" id="days">14</div>
+            <div class="cd-label">Days</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-number" id="hours">08</div>
+            <div class="cd-label">Hours</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-number" id="minutes">45</div>
+            <div class="cd-label">Minutes</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-number" id="seconds">12</div>
+            <div class="cd-label">Seconds</div>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <form class="cs-form d-flex gap-2 flex-column flex-sm-row">
+          <input type="email" class="form-control form-control-lg bg-transparent text-white border-secondary" placeholder="Enter your email address" required style="border-color: rgba(255,255,255,0.2) !important;">
+          <button class="btn btn-premium px-5" type="submit">Notify Me</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Socials -->
+    <div class="cs-footer">
+      <div class="social-icons justify-content-center mb-3">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">IG</a>
+      </div>
+      <p class="text-white-50 small mb-0">&copy; 2026 AlexCopy. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple mock countdown
+    setInterval(() => {
+      let s = document.getElementById('seconds');
+      let m = document.getElementById('minutes');
+      let h = document.getElementById('hours');
+      
+      let sec = parseInt(s.innerText);
+      let min = parseInt(m.innerText);
+      let hr = parseInt(h.innerText);
+
+      if (sec > 0) {
+        sec--;
+      } else {
+        sec = 59;
+        if (min > 0) {
+          min--;
+        } else {
+          min = 59;
+          hr--;
+        }
+      }
+
+      s.innerText = sec < 10 ? '0'+sec : sec;
+      m.innerText = min < 10 ? '0'+min : min;
+      h.innerText = hr < 10 ? '0'+hr : hr;
+    }, 1000);
+  </script>
+</body>
+</html>

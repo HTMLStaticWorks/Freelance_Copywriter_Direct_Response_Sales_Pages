@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Carter | Copywriting Services</title>
+  <meta name="description" content="Copywriting services for scaling businesses.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <style>
+    /* Services Hero */
+    .services-hero {
+      padding: 100px 0;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop') center/cover fixed;
+      margin-top: 90px;
+    }
+
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--bg-primary);
+      opacity: 0.85;
+      z-index: 0;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.5;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .services-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Services Grid - Staggered */
+    .services-grid-wrapper {
+      padding: 5rem 0;
+      background: var(--bg-primary);
+    }
+
+    .service-box-alt {
+      background: var(--bg-secondary);
+      border-radius: 30px;
+      padding: 0;
+      height: 100%;
+      border: 1px solid var(--border-color);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-box-alt:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: scale(1.02);
+    }
+    
+    .service-box-alt:hover h3, 
+    .service-box-alt:hover p,
+    .service-box-alt:hover .service-link {
+      color: white;
+    }
+
+    .service-icon-large-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 0;
+      transition: transform 0.4s;
+    }
+
+    .service-box-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-box-alt:hover .service-icon-large-img {
+      transform: scale(1.05);
+    }
+
+    .service-link {
+      margin-top: 2rem;
+      display: inline-block;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: color 0.4s;
+    }
+
+    .service-box-alt:hover .service-link {
+      color: white;
+    }
+
+    /* Process Horizontal Steps */
+    .process-horizontal {
+      background: var(--bg-secondary);
+    }
+
+    .process-track {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 4rem;
+    }
+
+    .process-track::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 5%;
+      width: 90%;
+      height: 2px;
+      background: var(--border-color);
+      z-index: 1;
+    }
+
+    .h-step {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      width: 25%;
+      padding: 0 1rem;
+    }
+
+    .h-step-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s;
+    }
+
+    .h-step:hover .h-step-icon {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-10px);
+    }
+
+    @media (max-width: 991px) {
+      .process-track { flex-direction: column; }
+      .process-track::before {
+        top: 0; left: 40px; width: 2px; height: 100%;
+      }
+      .h-step { width: 100%; text-align: left; display: flex; align-items: center; margin-bottom: 2rem; }
+      .h-step-icon { margin: 0 2rem 0 0; }
+    }
+
+    /* FAQ Accordion Custom */
+    .faq-section {
+      background: var(--bg-primary);
+    }
+
+    .accordion-item {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+
+    .accordion-button {
+      background: transparent !important;
+      color: var(--text-primary) !important;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 1.5rem 0;
+      box-shadow: none !important;
+    }
+
+    .accordion-button::after {
+      filter: invert(var(--bg-primary) == '#0f172a' ? 1 : 0);
+    }
+
+    .accordion-body {
+      padding: 0 0 1.5rem 0;
+      color: var(--text-secondary);
+    }
+
+    /* Services CTA */
+    .services-cta {
+      background: linear-gradient(45deg, var(--accent-color), #4f46e5);
+      color: white;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .services-cta::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.01%);
+      background-size: 20px 20px;
+      transform: rotate(30deg);
+      pointer-events: none;
+    }
+
+    /* Modern Image Grid */
+    .modern-image-grid {
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modern-img-1 {
+      width: 70%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      border: 8px solid var(--bg-primary);
+    }
+    
+    .modern-img-2 {
+      width: 60%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      border: 8px solid var(--bg-primary);
+    }
+    
+    @media (max-width: 991px) {
+      .modern-image-grid {
+        height: 400px;
+        margin-top: 3rem;
+      }
+      .modern-img-1 { width: 80%; }
+      .modern-img-2 { width: 65%; right: 5%; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="global-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">ALEX<span class="text-gradient">COPY.</span></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="header-controls">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">☀️</button>
+            <button id="rtlToggle" class="rtl-toggle" aria-label="Toggle RTL">⇄</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="services-hero position-relative">
+      <div class="hero-pattern"></div>
+      <div class="container animate-on-scroll fade-up">
+        <span class="text-gradient fw-bold text-uppercase tracking-wider mb-2 d-block">Capabilities</span>
+        <h1 class="display-3 fw-bold mb-4">Precision-Engineered Assets.</h1>
+        <p class="lead max-w-2xl mx-auto text-secondary">Every piece of copy is treated as an automated salesperson designed to acquire customers at profit.</p>
+      </div>
+    </section>
+
+    <!-- 2. Services Grid -->
+    <section class="services-grid-wrapper">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6 animate-on-scroll fade-up delay-100">
+            <div class="service-box-alt">
+              <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=800&auto=format&fit=crop" alt="Sales Letters" class="service-icon-large-img">
+              <div class="service-box-content">
+                <h3>Long-Form Sales Letters</h3>
+                <p class="text-secondary mt-3">The ultimate conversion asset for high-ticket offers, supplements, and complex info-products. Designed to build intense desire over 5,000+ words.</p>
+                <ul class="mt-4 list-unstyled">
+                  <li>✓ Heavy market research</li>
+                  <li>✓ Big idea conceptualization</li>
+                  <li>✓ Objection dismantling</li>
+                </ul>
+                <a href="service-details.html" class="service-link mt-auto">Explore Service →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 animate-on-scroll fade-up delay-200">
+            <div class="service-box-alt">
+              <img src="https://images.unsplash.com/photo-1626279148483-3eb3521e64b8?q=80&w=800&auto=format&fit=crop" alt="Video Sales Letters" class="service-icon-large-img">
+              <div class="service-box-content">
+                <h3>Video Sales Letters (VSL)</h3>
+                <p class="text-secondary mt-3">Hypnotic scripts for webinar registrations or direct sales. Structured perfectly to retain attention until the buy button appears.</p>
+                <ul class="mt-4 list-unstyled">
+                  <li>✓ Hook architecture</li>
+                  <li>✓ Story-driven selling</li>
+                  <li>✓ Pitch structuring</li>
+                </ul>
+                <a href="service-details.html" class="service-link mt-auto">Explore Service →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 animate-on-scroll fade-up delay-300">
+            <div class="service-box-alt">
+              <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=800&auto=format&fit=crop" alt="Email Funnel Builds" class="service-icon-large-img">
+              <div class="service-box-content">
+                <h3>Email Funnel Builds</h3>
+                <p class="text-secondary mt-3">From soap opera welcome sequences to 7-day launch campaigns. Turning your dead list into a predictable revenue source.</p>
+                <ul class="mt-4 list-unstyled">
+                  <li>✓ High open-rate subject lines</li>
+                  <li>✓ Infotainment style</li>
+                  <li>✓ Soft & hard pitches</li>
+                </ul>
+                <a href="service-details.html" class="service-link mt-auto">Explore Service →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 animate-on-scroll fade-up delay-400">
+            <div class="service-box-alt">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Direct Response Ads" class="service-icon-large-img">
+              <div class="service-box-content">
+                <h3>Direct Response Ads</h3>
+                <p class="text-secondary mt-3">Facebook and YouTube ad creatives that stop the scroll, agitate the problem, and drive qualified clicks to your funnel.</p>
+                <ul class="mt-4 list-unstyled">
+                  <li>✓ Multiple hook variations</li>
+                  <li>✓ Compliance safe copy</li>
+                  <li>✓ High CTR focus</li>
+                </ul>
+                <a href="service-details.html" class="service-link mt-auto">Explore Service →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Process Horizontal -->
+    <section class="section-padding process-horizontal">
+      <div class="container">
+        <div class="text-center mb-5 animate-on-scroll zoom-in">
+          <h2 class="display-5 fw-bold">How We Collaborate</h2>
+          <p class="text-secondary">A transparent, no-BS approach to getting your copy live and converting.</p>
+        </div>
+        
+        <div class="process-track">
+          <div class="h-step animate-on-scroll fade-up delay-100">
+            <div class="h-step-icon">1</div>
+            <div>
+              <h4 class="fw-bold">Strategy Call</h4>
+              <p class="text-secondary small">We discuss your offer, metrics, and goals to see if I can genuinely help.</p>
+            </div>
+          </div>
+          <div class="h-step animate-on-scroll fade-up delay-200">
+            <div class="h-step-icon">2</div>
+            <div>
+              <h4 class="fw-bold">Research Phase</h4>
+              <p class="text-secondary small">I vanish for 5 days to study your competitors, customers, and product.</p>
+            </div>
+          </div>
+          <div class="h-step animate-on-scroll fade-up delay-300">
+            <div class="h-step-icon">3</div>
+            <div>
+              <h4 class="fw-bold">Drafting & Review</h4>
+              <p class="text-secondary small">You receive the first draft. We review and adjust based on your feedback.</p>
+            </div>
+          </div>
+          <div class="h-step animate-on-scroll fade-up delay-400">
+            <div class="h-step-icon">4</div>
+            <div>
+              <h4 class="fw-bold">Launch & Optimize</h4>
+              <p class="text-secondary small">We launch. I monitor the initial metrics and provide a free optimization round.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5 Methodology Modern Layout -->
+    <section class="section-padding overflow-hidden bg-secondary">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 animate-on-scroll fade-right">
+            <span class="text-gradient fw-bold text-uppercase tracking-wider">Methodology</span>
+            <h2 class="display-5 fw-bold mt-2 mb-4">The Anatomy of a Winning Campaign</h2>
+            <p class="lead text-secondary mb-4">Great copy isn't just words on a page. It's a calculated blend of psychological triggers, deep market research, and irresistible offers.</p>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3" style="border: 1px solid var(--accent-color);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-1">Offer Architecture</h4>
+                <p class="text-secondary mb-0">Structuring your deliverables so they feel ten times more valuable than the price.</p>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start">
+              <div class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3" style="border: 1px solid var(--accent-color);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-1">Urgency & Scarcity</h4>
+                <p class="text-secondary mb-0">Ethical deployment of time-sensitive triggers that force immediate action.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6 animate-on-scroll fade-left delay-200">
+            <div class="position-relative modern-image-grid">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Analytics" class="img-fluid rounded-4 shadow-lg modern-img-1 animate-on-scroll zoom-in delay-300">
+              <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=600&auto=format&fit=crop" alt="Notes" class="img-fluid rounded-4 shadow-lg modern-img-2 animate-on-scroll zoom-in delay-400">
+              
+              <!-- Floating Badge -->
+              <div class="position-absolute bg-primary text-white rounded-pill px-4 py-3 shadow-lg fw-bold d-flex align-items-center gap-2 animate-on-scroll fade-up delay-500" style="bottom: 10%; right: -5%; z-index: 3;">
+                <span class="text-warning fs-5">★</span> 98% Client Satisfaction
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ -->
+    <section class="section-padding faq-section">
+      <div class="container max-w-4xl mx-auto">
+        <div class="text-center mb-5 animate-on-scroll fade-up">
+          <h2 class="display-5 fw-bold">Common Questions</h2>
+        </div>
+        <div class="accordion" id="servicesFaq">
+          <div class="accordion-item animate-on-scroll fade-left delay-100">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                How long does a full sales page take?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                Typically, a long-form sales page takes 2-3 weeks. The first week is entirely dedicated to research. Writing takes another week, and revisions take a few days. Quality cannot be rushed.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item animate-on-scroll fade-left delay-200">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Do you guarantee results?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                No professional copywriter can guarantee specific results due to variables outside their control (traffic quality, product changes, market shifts). However, I guarantee that the copy will be based on proven psychological frameworks and rigorous research.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item animate-on-scroll fade-left delay-300">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Do you handle the design as well?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+              <div class="accordion-body">
+                I provide wireframes in Figma so your designer knows exactly how the copy should flow. If you need development, I have a network of trusted designers and developers I can refer you to.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CTA -->
+    <section class="section-padding services-cta text-center">
+      <div class="container animate-on-scroll zoom-in">
+        <h2 class="display-4 fw-bold mb-4 position-relative z-1">Need a custom scope?</h2>
+        <p class="lead mb-5 max-w-2xl mx-auto position-relative z-1 text-white-50">Every business is different. Book a call and we'll audit your current funnel free of charge.</p>
+        <a href="booking.html" class="btn btn-light btn-lg px-5 py-3 fw-bold text-primary position-relative z-1">Audit My Funnel</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a href="index.html" class="footer-logo">ALEX<span class="text-gradient">COPY.</span></a>
+          <p class="footer-text mt-3">Elite direct response copywriting for businesses that refuse to settle for average conversion rates.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter" class="social-twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="blog.html">Copywriting Blog</a></li>
+            <li><a href="gallery.html">Portfolio & Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="booking.html">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Join The Newsletter</h5>
+          <p class="text-secondary">Get 1 actionable copywriting tip every Tuesday.</p>
+          <form class="d-flex mt-3 gap-2">
+            <input type="email" class="form-control bg-primary text-primary" placeholder="Enter your email" required style="background: var(--bg-primary) !important; color: var(--text-primary) !important; border-color: var(--border-color);">
+            <button class="btn btn-premium px-4" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0 text-secondary">&copy; 2026 AlexCopy. All rights reserved.</p>
+        <div class="d-flex gap-4">
+          <a href="#" class="text-secondary">Privacy Policy</a>
+          <a href="#" class="text-secondary">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

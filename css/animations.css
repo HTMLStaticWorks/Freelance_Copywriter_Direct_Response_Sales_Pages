@@ -1,0 +1,124 @@
+/* animations.css */
+
+/* Initial states for intersection observer */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+/* Fade Up */
+.fade-up {
+  transform: translateY(40px);
+}
+.fade-up.in-view {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Left */
+.fade-left {
+  transform: translateX(-40px);
+}
+.fade-left.in-view {
+  animation: fadeLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade Right */
+.fade-right {
+  transform: translateX(40px);
+}
+.fade-right.in-view {
+  animation: fadeRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Zoom In */
+.zoom-in {
+  transform: scale(0.8);
+}
+.zoom-in.in-view {
+  animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Blur Reveal */
+.blur-reveal {
+  filter: blur(10px);
+  transform: translateY(20px);
+}
+.blur-reveal.in-view {
+  animation: blurReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes blurReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* Float Animation (Continuous) */
+.floating {
+  animation: floating 3s ease-in-out infinite alternate;
+}
+
+@keyframes floating {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+
+/* Staggered Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Image Mask Reveal */
+.mask-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.mask-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  transform-origin: right;
+  z-index: 1;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mask-reveal.in-view::after {
+  transform: scaleX(0);
+}

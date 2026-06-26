@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Alex Carter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+      padding: 2rem;
+    }
+    .auth-card {
+      background: var(--bg-primary);
+      border-radius: 24px;
+      padding: 3rem;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+    .auth-controls {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .social-btn {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .social-btn:hover { background: var(--bg-secondary); border-color: var(--text-primary); }
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      color: var(--text-secondary);
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .divider span { padding: 0 1rem; font-size: 0.9rem; }
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="auth-controls">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">☀️</button>
+        <button id="rtlToggle" class="rtl-toggle" aria-label="Toggle RTL">⇄</button>
+      </div>
+      <div class="text-center mb-4">
+        <a href="index.html" class="navbar-brand d-block fs-3 mb-2">ALEX<span class="text-gradient">COPY.</span></a>
+        <h2 class="fw-bold">Welcome Back</h2>
+        <p class="text-secondary">Sign in to client portal</p>
+      </div>
+      
+      <button class="social-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#EA4335" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+        Continue with Google
+      </button>
+      <button class="social-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        Continue with Apple
+      </button>
+
+      <div class="divider"><span>OR</span></div>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Email</label>
+          <input type="email" class="form-control bg-transparent border-secondary text-primary" required>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-bold">Password</label>
+          <div class="position-relative">
+            <input type="password" id="passInput" class="form-control bg-transparent border-secondary text-primary" required>
+            <button type="button" class="password-toggle" id="toggleBtn">👁️</button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label text-secondary small" for="remember">Remember me</label>
+          </div>
+          <a href="#" class="small fw-bold">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-premium w-100">Sign In</button>
+      </form>
+      <p class="text-center mt-4 mb-0 text-secondary small">
+        Don't have an account? <a href="register.html" class="fw-bold">Register</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('toggleBtn').addEventListener('click', function() {
+      const input = document.getElementById('passInput');
+      if (input.type === 'password') {
+        input.type = 'text';
+        this.textContent = '👁️‍🗨️';
+      } else {
+        input.type = 'password';
+        this.textContent = '👁️';
+      }
+    });
+  </script>
+</body>
+</html>
