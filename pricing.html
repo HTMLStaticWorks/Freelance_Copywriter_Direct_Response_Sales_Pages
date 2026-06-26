@@ -20,6 +20,19 @@
       padding: 160px 0 80px;
       text-align: center;
       background: var(--bg-primary);
+      position: relative;
+    }
+    .pricing-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    .pricing-hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     /* Pricing Cards */
@@ -186,10 +199,9 @@
             <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
             <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          </ul>
+</ul>
           <div class="header-controls">
-            <a href="booking.html" class="btn btn-premium btn-sm">Book a Call</a>
+            <a href="contact.html" class="btn btn-premium btn-sm">Book a Call</a>
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">☀️</button>
             <button id="rtlToggle" class="rtl-toggle" aria-label="Toggle RTL">⇄</button>
           </div>
@@ -223,7 +235,7 @@
                 <li>1 round of revisions</li>
                 <li>Figma wireframes</li>
               </ul>
-              <a href="booking.html" class="btn btn-outline-premium w-100">Book Project</a>
+              <a href="contact.html" class="btn btn-outline-premium w-100">Book Project</a>
             </div>
           </div>
           <div class="col-lg-4 animate-on-scroll zoom-in delay-200">
@@ -240,7 +252,7 @@
                 <li>2 rounds of revisions</li>
                 <li>Post-launch optimization review</li>
               </ul>
-              <a href="booking.html" class="btn btn-premium w-100">Book Project</a>
+              <a href="contact.html" class="btn btn-premium w-100">Book Project</a>
             </div>
           </div>
           <div class="col-lg-4 animate-on-scroll fade-up delay-300">
@@ -256,7 +268,7 @@
                 <li>3 rounds of revisions</li>
                 <li>30 days of performance tracking</li>
               </ul>
-              <a href="booking.html" class="btn btn-outline-premium w-100">Book Project</a>
+              <a href="contact.html" class="btn btn-outline-premium w-100">Book Project</a>
             </div>
           </div>
         </div>
@@ -326,23 +338,60 @@
     <section class="section-padding pricing-faq">
       <div class="container">
         <h2 class="display-5 fw-bold mb-5 text-center animate-on-scroll fade-up">Pricing Questions</h2>
-        <div class="faq-grid">
-          <div class="faq-item animate-on-scroll fade-left delay-100">
-            <h4>Do you require payment upfront?</h4>
-            <p>I require a 50% deposit to secure your spot in my calendar and begin the research phase. The remaining 50% is due upon delivery of the final draft, before launch.</p>
+        <div class="accordion max-w-3xl mx-auto" id="pricingFaqAccordion">
+          
+          <div class="accordion-item animate-on-scroll fade-left delay-100">
+            <h2 class="accordion-header" id="faqHeading1">
+              <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                Do you require payment upfront?
+              </button>
+            </h2>
+            <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#pricingFaqAccordion">
+              <div class="accordion-body text-secondary">
+                I require a 50% deposit to secure your spot in my calendar and begin the research phase. The remaining 50% is due upon delivery of the final draft, before launch.
+              </div>
+            </div>
           </div>
-          <div class="faq-item animate-on-scroll fade-left delay-200">
-            <h4>Do you work on performance/royalties?</h4>
-            <p>Yes, for established businesses generating over $1M/year with proven traffic sources. In these cases, the upfront fee is reduced in exchange for a percentage of the gross lift.</p>
+
+          <div class="accordion-item animate-on-scroll fade-left delay-200">
+            <h2 class="accordion-header" id="faqHeading2">
+              <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                Do you work on performance/royalties?
+              </button>
+            </h2>
+            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#pricingFaqAccordion">
+              <div class="accordion-body text-secondary">
+                Yes, for established businesses generating over $1M/year with proven traffic sources. In these cases, the upfront fee is reduced in exchange for a percentage of the gross lift.
+              </div>
+            </div>
           </div>
-          <div class="faq-item animate-on-scroll fade-left delay-300">
-            <h4>Are there any hidden fees?</h4>
-            <p>No. The price we agree upon in the proposal is the exact price you pay. Additional revisions outside the scope will be quoted separately before any work begins.</p>
+
+          <div class="accordion-item animate-on-scroll fade-left delay-300">
+            <h2 class="accordion-header" id="faqHeading3">
+              <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                Are there any hidden fees?
+              </button>
+            </h2>
+            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#pricingFaqAccordion">
+              <div class="accordion-body text-secondary">
+                No. The price we agree upon in the proposal is the exact price you pay. Additional revisions outside the scope will be quoted separately before any work begins.
+              </div>
+            </div>
           </div>
-          <div class="faq-item animate-on-scroll fade-left delay-400">
-            <h4>Do you offer refunds?</h4>
-            <p>Due to the intensive research and custom nature of copywriting, I do not offer refunds once the work has commenced. I do, however, guarantee that I will revise the copy until you are satisfied based on the agreed-upon scope.</p>
+
+          <div class="accordion-item animate-on-scroll fade-left delay-400">
+            <h2 class="accordion-header" id="faqHeading4">
+              <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                Do you offer refunds?
+              </button>
+            </h2>
+            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#pricingFaqAccordion">
+              <div class="accordion-body text-secondary">
+                Due to the intensive research and custom nature of copywriting, I do not offer refunds once the work has commenced. I do, however, guarantee that I will revise the copy until you are satisfied based on the agreed-upon scope.
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -362,7 +411,10 @@
     <div class="container">
       <div class="row g-5">
         <div class="col-lg-4">
-          <a href="index.html" class="footer-logo">ALEX<span class="text-gradient">COPY.</span></a>
+          <a href="index.html" class="footer-logo">
+          <img src="img/logo-icon.png" alt="AlexCopy Logo" height="36" class="brand-logo-icon">
+          <span class="brand-text-name">ALEX<span class="text-gradient">COPY.</span></span>
+        </a>
           <p class="footer-text mt-3">Elite direct response copywriting for businesses that refuse to settle for average conversion rates.</p>
           <div class="social-icons">
             <a href="#" aria-label="Twitter" class="social-twitter">
@@ -391,7 +443,7 @@
             <li><a href="blog.html">Copywriting Blog</a></li>
             <li><a href="gallery.html">Portfolio & Results</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="booking.html">Book a Call</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">

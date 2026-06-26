@@ -71,6 +71,24 @@ p {
   margin-bottom: 1rem;
 }
 
+/* Forms */
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.8 !important;
+}
+
+.form-control {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.form-control:focus {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+}
+
 .bg-primary {
   background-color: var(--bg-primary) !important;
 }
@@ -87,7 +105,33 @@ p {
   color: var(--accent-color) !important;
 }
 
+.btn-light.text-accent {
+  color: #2563eb !important;
+}
+
 .text-secondary, .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Accordion Styling */
+.accordion-item {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+.accordion-button {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--bg-primary) !important;
+  color: var(--accent-color) !important;
+  box-shadow: inset 0 -1px 0 var(--border-color) !important;
+}
+.accordion-button::after {
+  filter: invert(var(--accordion-invert)) !important;
+}
+.accordion-body {
+  background-color: var(--bg-primary) !important;
   color: var(--text-secondary) !important;
 }
 
@@ -128,7 +172,8 @@ img {
 .btn-premium:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-  color: #fff;
+  background-color: var(--accent-hover) !important;
+  color: #ffffff !important;
 }
 
 .btn-outline-premium {
@@ -185,17 +230,21 @@ img {
   height: 36px;
   width: auto;
   object-fit: contain;
-  border-radius: 8px; /* Slight rounding for a premium feel */
+  border-radius: 8px;
   flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .brand-text-name {
   font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
   line-height: 1;
   display: flex;
   align-items: center;
+  letter-spacing: -0.5px;
+  -webkit-text-fill-color: initial !important; /* Prevent gradient bleed from child spans */
 }
 
 .nav-link {
@@ -269,12 +318,32 @@ img {
   border-top: 1px solid var(--border-color);
 }
 
+/* Footer Logo — identical pattern to navbar-brand (icon + brand name) */
 .footer-logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
   margin-bottom: 1rem;
-  display: inline-block;
+}
+
+.footer-logo .brand-logo-icon {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.footer-logo .brand-text-name {
+  font-size: 1.5rem;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.5px;
+  -webkit-text-fill-color: initial !important;
 }
 
 .footer-text {
@@ -390,6 +459,32 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Fallback: if background-clip:text fails, show accent color */
+  color: var(--accent-color);
+}
+
+/* Light mode: ensure nav text is always visible on transparent/white header */
+[data-theme="light"] .navbar-brand,
+[data-theme="light"] .brand-text-name {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+[data-theme="light"] .brand-text-name .text-gradient {
+  -webkit-text-fill-color: transparent !important;
+  color: var(--accent-color);
+}
+
+/* Dark mode: ensure nav text is always visible */
+[data-theme="dark"] .navbar-brand,
+[data-theme="dark"] .brand-text-name {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+[data-theme="dark"] .brand-text-name .text-gradient {
+  -webkit-text-fill-color: transparent !important;
+  color: var(--accent-color);
 }
 .dropdown-item:hover, .dropdown-item:focus { background-color: rgba(128,128,128,0.2) !important; color: var(--accent-color) !important; }
 .social-icons a.social-twitter:hover {
