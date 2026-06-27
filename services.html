@@ -267,6 +267,69 @@
       .modern-img-2 { width: 65%; right: 5%; }
     }
 
+    /* Floating Image & Rotating Badge Section */
+    .floating-image-wrapper {
+      position: relative;
+      padding: 1rem;
+    }
+    .floating-image-inner {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: var(--shadow-lg);
+    }
+    .floating-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-color), transparent 70%);
+      opacity: 0.3;
+      mix-blend-mode: color-burn;
+      pointer-events: none;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(1deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .rotating-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 140px;
+      height: 140px;
+      background: var(--bg-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      z-index: 2;
+      border: 8px solid var(--bg-secondary);
+    }
+    .rotating-badge svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      animation: spin 15s linear infinite;
+    }
+    .badge-icon {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent-color);
+      z-index: 1;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    @media (max-width: 991px) {
+      .rotating-badge {
+        width: 100px; height: 100px;
+        bottom: -10px; right: -10px;
+      }
+      .badge-icon { font-size: 1.5rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -459,6 +522,57 @@
               <!-- Floating Badge -->
               <div class="position-absolute bg-primary text-white rounded-pill px-4 py-3 shadow-lg fw-bold d-flex align-items-center gap-2 animate-on-scroll fade-up delay-500" style="bottom: 10%; right: -5%; z-index: 3;">
                 <span class="text-warning fs-5">★</span> 98% Client Satisfaction
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.7 Real Results Section -->
+    <section class="section-padding overflow-hidden position-relative">
+      <div class="container">
+        <div class="row align-items-center g-5 flex-row-reverse">
+          <div class="col-lg-6 animate-on-scroll fade-left">
+            <span class="text-gradient fw-bold text-uppercase tracking-wider">Proof of Work</span>
+            <h2 class="display-5 fw-bold mt-2 mb-4">Words That Move <span class="text-gradient">The Needle</span></h2>
+            <p class="lead text-secondary mb-4">I don't just write for engagement. I write for revenue. Every asset is continuously split-tested against control pages to ensure we are always lifting conversion rates and maximizing your ad spend.</p>
+            <ul class="list-unstyled mt-4">
+              <li class="d-flex align-items-center mb-3">
+                <div class="bg-primary text-accent rounded-circle p-1 me-3 shadow-sm" style="border: 1px solid var(--border-color);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span class="fs-5 fw-bold text-secondary">Average 2.4x ROI on ad spend</span>
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <div class="bg-primary text-accent rounded-circle p-1 me-3 shadow-sm" style="border: 1px solid var(--border-color);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span class="fs-5 fw-bold text-secondary">Consistently beating control by 30%+</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="bg-primary text-accent rounded-circle p-1 me-3 shadow-sm" style="border: 1px solid var(--border-color);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span class="fs-5 fw-bold text-secondary">Millions generated across 5 niches</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-6 animate-on-scroll fade-right delay-200">
+            <div class="floating-image-wrapper">
+              <div class="floating-image-inner">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop" alt="Revenue Chart" class="img-fluid w-100">
+                <div class="floating-overlay"></div>
+              </div>
+              <div class="rotating-badge">
+                <svg viewBox="0 0 100 100">
+                  <path id="circlePath2" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none"></path>
+                  <text font-size="13" font-weight="bold" fill="currentColor" style="color: var(--text-primary); letter-spacing: 1px;">
+                    <textPath href="#circlePath2">PROVEN RESULTS • VERIFIED DATA • </textPath>
+                  </text>
+                </svg>
+                <div class="badge-icon">↗</div>
               </div>
             </div>
           </div>

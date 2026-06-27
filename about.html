@@ -192,6 +192,102 @@
     
     .about-cta .container { position: relative; z-index: 2; }
 
+    /* Core Values Section */
+    .values-section {
+      background: var(--bg-primary);
+    }
+    .value-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      height: 100%;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--accent-color), transparent);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.4s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+    .value-card:hover::before {
+      opacity: 0.05;
+    }
+    .value-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+      transition: transform 0.6s ease;
+    }
+    .value-icon-wrapper svg {
+      color: var(--accent-color);
+      width: 32px;
+      height: 32px;
+    }
+    .value-card:hover .value-icon-wrapper {
+      transform: rotateY(360deg);
+    }
+
+    /* My Process Section */
+    .process-section {
+      background: var(--bg-secondary);
+      overflow: hidden;
+    }
+    .process-image-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .process-image-wrap img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .process-image-wrap:hover img {
+      transform: scale(1.08);
+    }
+    .process-step-number {
+      font-size: 6rem;
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--border-color);
+      position: absolute;
+      top: -40px;
+      left: 0;
+      z-index: 0;
+      opacity: 0.4;
+      transition: opacity 0.4s ease;
+    }
+    .process-content:hover .process-step-number {
+      opacity: 0.8;
+      -webkit-text-stroke: 2px var(--accent-color);
+    }
+    .process-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 2rem;
+    }
+
   </style>
 </head>
 <body>
@@ -310,7 +406,87 @@
       </div>
     </section>
 
-    <!-- 5. CTA -->
+    <!-- 5. Core Values -->
+    <section class="section-padding values-section">
+      <div class="container">
+        <div class="text-center mb-5 animate-on-scroll fade-up">
+          <h2 class="display-5 fw-bold">My Core Values</h2>
+          <p class="text-secondary max-w-2xl mx-auto mt-3">The principles that dictate how I work and who I choose to partner with.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 animate-on-scroll fade-up">
+            <div class="value-card">
+              <div class="value-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <h4 class="fw-bold mb-3">Data Over Ego</h4>
+              <p class="text-secondary mb-0">I don't write what sounds pretty. I write what the data proves will convert. Testing and metrics always dictate the final copy.</p>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-100">
+            <div class="value-card">
+              <div class="value-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+              </div>
+              <h4 class="fw-bold mb-3">Radical Honesty</h4>
+              <p class="text-secondary mb-0">If your offer needs work before we run traffic, I will tell you. I only succeed when my clients see massive, tangible ROI.</p>
+            </div>
+          </div>
+          <div class="col-md-4 animate-on-scroll fade-up delay-200">
+            <div class="value-card">
+              <div class="value-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              </div>
+              <h4 class="fw-bold mb-3">Deep Work Focus</h4>
+              <p class="text-secondary mb-0">I strictly limit my client roster so I can immerse myself fully in your market, customer psychology, and brand voice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. My Process -->
+    <section class="section-padding process-section">
+      <div class="container">
+        <div class="text-center mb-5 animate-on-scroll fade-up">
+          <h2 class="display-5 fw-bold">My Writing Process</h2>
+          <p class="text-secondary max-w-2xl mx-auto mt-3">How we take a project from an idea to a high-converting revenue asset.</p>
+        </div>
+        
+        <div class="row align-items-center mb-5 pb-4">
+          <div class="col-lg-5 animate-on-scroll fade-right">
+            <div class="process-image-wrap">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop" alt="Discovery Phase">
+            </div>
+          </div>
+          <div class="col-lg-6 offset-lg-1 animate-on-scroll fade-left delay-100">
+            <div class="process-content">
+              <div class="process-step-number">01</div>
+              <h3 class="fw-bold mb-3 mt-4">Deep Discovery & Research</h3>
+              <p class="text-secondary fs-5">Before writing a single word, I spend days researching your market. I read customer reviews, spy on competitors, and interview your best buyers. We uncover the exact language your market uses when they are ready to buy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center flex-row-reverse mb-5 pb-4">
+          <div class="col-lg-5 animate-on-scroll fade-left">
+            <div class="process-image-wrap">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop" alt="Strategy & Wireframing">
+            </div>
+          </div>
+          <div class="col-lg-6 me-auto animate-on-scroll fade-right delay-100">
+            <div class="process-content">
+              <div class="process-step-number">02</div>
+              <h3 class="fw-bold mb-3 mt-4">Strategy & Architecture</h3>
+              <p class="text-secondary fs-5">Next, we outline the exact psychological journey the prospect needs to go through. I build out the entire structure, sequence of arguments, and wireframe the flow to ensure it keeps attention hooked from start to finish.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
     <section class="about-cta text-center text-white">
       <div class="container animate-on-scroll zoom-in">
         <h2 class="display-4 fw-bold mb-4 text-white">Want to see if we're a fit?</h2>
