@@ -36,11 +36,17 @@
       border: 1px solid var(--border-color);
       transition: all 0.3s;
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .contact-card-alt:hover {
       border-color: var(--accent-color);
       transform: translateY(-10px);
+    }
+    
+    .contact-card-alt a {
+      margin-top: auto;
     }
 
     .contact-icon-wrapper {

@@ -30,10 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- RTL Toggle ---
   const rtlToggle = document.getElementById('rtlToggle');
+  
+  const savedDir = localStorage.getItem('dir');
+  if (savedDir) {
+    htmlElement.setAttribute('dir', savedDir);
+  }
+
   if (rtlToggle) {
     rtlToggle.addEventListener('click', () => {
       const isRTL = htmlElement.getAttribute('dir') === 'rtl';
-      htmlElement.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+      const newDir = isRTL ? 'ltr' : 'rtl';
+      htmlElement.setAttribute('dir', newDir);
+      localStorage.setItem('dir', newDir);
     });
   }
 

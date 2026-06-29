@@ -381,6 +381,12 @@ img {
 [dir="ltr"] .footer-links a:hover { padding-left: 5px; }
 [dir="rtl"] .footer-links a:hover { padding-right: 5px; }
 
+/* Accordion RTL Fix */
+[dir="rtl"] .accordion-button::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 
 .social-icons {
   display: flex;
@@ -498,4 +504,66 @@ img {
 .social-icons a.social-instagram:hover {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
   color: #fff !important;
+}
+
+.navbar-toggler {
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+/* Mobile Navigation Fix */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  .header-controls {
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+  }
+}
+
+/* About Timeline RTL Fix */
+[dir="rtl"] .timeline-item {
+  padding-left: 3rem;
+  padding-right: 0;
+}
+
+[dir="rtl"] .timeline-item:nth-child(even) {
+  margin-right: 50%;
+  margin-left: 0;
+  padding-right: 3rem;
+  padding-left: 0;
+}
+
+[dir="rtl"] .timeline-dot {
+  left: -10px;
+  right: auto;
+}
+
+[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+  right: -10px;
+  left: auto;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .timeline::before {
+    right: 20px;
+    left: auto;
+  }
+  [dir="rtl"] .timeline-item, [dir="rtl"] .timeline-item:nth-child(even) {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 50px;
+    padding-left: 0;
+  }
+  [dir="rtl"] .timeline-dot, [dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+    right: 10px;
+    left: auto;
+  }
 }
